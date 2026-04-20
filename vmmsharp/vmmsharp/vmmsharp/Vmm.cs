@@ -184,7 +184,10 @@ namespace Vmmsharp
                 {
                 }
                 // Free unmanaged objects.
-                this.LeechCore.Dispose(); // Contains unmanaged handles
+                if (this.LeechCore != null)
+                {
+                    this.LeechCore.Dispose(); // Contains unmanaged handles
+                }
                 IntPtr hVMM_Dispose = hVMM;
                 hVMM = IntPtr.Zero;
                 if(hVMM_Dispose != IntPtr.Zero)
